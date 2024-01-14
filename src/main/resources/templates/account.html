@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои данные</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/account-edit-info.css">
+    <link rel="stylesheet" type="text/css" href="/css/validation-errors-style.css">
+</head>
+<body>
+<header>
+    <h1>Добро пожаловать на сайт продаж</h1>
+    <nav th:insert="~{fragments/navbar}"></nav>
+</header>
+
+<main>
+    <!-- Здесь размещается контент главной страницы -->
+    <h2>Вы можите изменить ваши данные тут:</h2>
+
+    <form method="post" th:action="@{'/user/' + ${user.id} + '/edit'}" th:object="${user}" class="account-form">
+        <label for="firstName">Имя</label>
+        <input type="text" th:value="${user.firstName}" name="firstName" id="firstName">
+        <div class="error-message" th:if="${#fields.hasErrors('firstName')}"
+             th:errors="*{firstName}"></div>
+        <label for="lastName">Фамилия</label>
+        <input type="text" th:value="${user.lastName}" name="lastName" id="lastName">
+        <div class="error-message" th:if="${#fields.hasErrors('lastName')}"
+             th:errors="*{lastName}"></div>
+        <label for="email">Почта</label>
+        <input type="email" th:value="${user.email}" name="email" id="email">
+        <div class="error-message" th:if="${#fields.hasErrors('email')}"
+             th:errors="*{email}"></div>
+        <label for="city">Город</label>
+        <input type="text" th:value="${user.city}" name="city" id="city">
+        <div class="error-message" th:if="${#fields.hasErrors('city')}"
+             th:errors="*{city}"></div>
+        <label for="phoneNumber">Номер телефона</label>
+        <input type="number" th:value="${user.phoneNumber}" name="phoneNumber" id="phoneNumber">
+        <div class="error-message" th:if="${#fields.hasErrors('phoneNumber')}"
+             th:errors="*{phoneNumber}"></div>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <button type="submit">Изменить данные</button>
+    </form>
+</main>
+
+
+<footer>
+    <!-- Здесь может быть подвал сайта с дополнительной информацией -->
+    <p>&copy; 2023 Сайт продаж</p>
+</footer>
+</body>
+</html>

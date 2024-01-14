@@ -1,0 +1,106 @@
+/* Оформление основного контейнера */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стили для заголовка "Все пользователи" */
+main h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff; /* Синий цвет */
+    text-align: center; /* Выравнивание по центру */
+}
+
+/* Стили для таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Стили для заголовков столбцов */
+table th {
+    background-color: #3498db; /* Синий фон */
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Стили для строк */
+table tr {
+    border: 1px solid #ddd;
+}
+
+/* Стили для ячеек */
+table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Стили для статуса "Активен" */
+table td.active {
+    background-color: #27ae60; /* Зеленый фон */
+    color: white;
+    font-weight: bold;
+}
+
+/* Стили для статуса "Забанен" */
+table td.banned {
+    background-color: #c0392b; /* Красный фон */
+    color: white;
+    font-weight: bold;
+}
+
+/* Стили для списка ролей */
+table ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Стили для элементов списка ролей */
+table li {
+    margin: 5px 0;
+}
+
+/* Стили для кнопки Забанить */
+form[method="post"] button[type="submit"][data-action="ban"] {
+    background-color: #cc0000;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Стили для кнопки Разбанить */
+form[method="post"] button[type="submit"][data-action="unban"] {
+    background-color: #009900;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Стили для кнопки "Сменить роль" */
+form[method="post"] button[type="submit"][data-action="change_role"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px; /* Уменьшил отступы для более компактного вида */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+
+/* При наведении на кнопку */
+form[method="post"] button[type="submit"]:hover {
+    filter: brightness(90%); /* Сделает кнопку немного темнее */
+}
+
+

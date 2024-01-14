@@ -1,0 +1,116 @@
+/* Стили для контейнера товара */
+.product-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Центрирование блока */
+    width: 700px; /* Максимальная ширина блока */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 60px;
+}
+
+/* Стили для меток */
+.product-title,
+.main-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-size: 32px;
+}
+
+.product-title {
+    font-size: 24px;
+}
+
+.product-info {
+    font-size: 18px;
+    color: #555;
+    word-wrap: break-word; /* Разрешить перенос слов */
+    white-space: pre-line; /* Сохранить переносы строк из исходного текста */
+}
+
+/* Стили для кнопок управления */
+.manage-button {
+    display: inline-block;
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.manage-button:hover {
+    background-color: #ff4400;
+}
+
+.manage-button[type="submit"] {
+    background-color: #cc0000;
+}
+
+.manage-button[type="submit"]:hover {
+    background-color: #aa0000;
+}
+
+/* Стили для контейнера кнопок */
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Выравнивание кнопок по центру */
+    margin-top: 20px; /* Отступ между описанием товара и кнопками */
+}
+
+/* Стили для контейнера изображения */
+.product-image-container {
+    border: 1px solid #ccc; /* Ширина и цвет рамки */
+    position: relative; /* Для абсолютного позиционирования стрелочек */
+
+    /* Ширина и максимальная высота контейнера (здесь 550px x 420px) */
+    width: 550px;
+    height: 420px; /* Устанавливаем максимальную высоту */
+    overflow: hidden; /* Скрываем изображение, которое не помещается */
+    margin: 0 auto; /* Центрируем контейнер */
+}
+
+/* Стили для изображения внутри контейнера */
+.product-image {
+    width: 100%; /* Заполнить всю ширину контейнера */
+    height: 100%; /* Заполнить всю высоту контейнера */
+    object-fit: contain; /* Сохранить пропорции и вписать в контейнер */
+}
+
+/* Стили для кнопок */
+.image-control {
+    position: absolute;
+    top: 50%; /* Положение по вертикали по середине контейнера */
+    transform: translateY(-50%); /* Выравниваем по середине */
+    width: 30px;
+    height: 30px;
+    background: #fff; /* Фон кнопки */
+    border: 1px solid #ccc; /* Граница кнопки */
+    border-radius: 50%; /* Круглая форма кнопки */
+    text-align: center;
+    line-height: 30px; /* Чтобы содержимое было по центру */
+    cursor: pointer;
+}
+
+.left {
+    left: 0; /* По левому краю контейнера */
+}
+
+.right {
+    right: 0; /* По правому краю контейнера */
+}
+
+/* Стили для иконок Font Awesome */
+.fas {
+    font-size: 20px;
+}
+

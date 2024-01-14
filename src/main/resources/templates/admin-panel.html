@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О пользователях</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/users-table-style.css">
+</head>
+<body>
+<header>
+    <nav th:insert="~{fragments/navbar}"></nav>
+</header>
+
+<main>
+    <h2>Все пользователи</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Почта</th>
+            <th>Роли</th>
+            <th>Активность</th>
+            <th>Забанить/разбанить</th>
+            <th>Поменять роль</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.email}"></td>
+            <td>
+                <ul>
+                    <li th:each="role : ${user.getRole()}" th:text="${role}"></li>
+                </ul>
+            </td>
+            <td th:text="${user.enabled ? 'Активен' : 'Забанен'}"></td>
+            <td>
+                <form th:if="${user.enabled}" method="post" th:action="@{'/user/' + ${user.id} + '/changeActive'}">
+                    <button type="submit" data-action="ban">Забанить</button>
+                </form>
+                <form th:if="${!user.enabled}" method="post" th:action="@{'/user/' + ${user.id} + '/changeActive'}">
+                    <button type="submit" data-action="unban">Разбанить</button>
+                </form>
+            </td>
+            <td>
+                <form method="post" th:action="@{'user/' + ${user.id} + '/changeRole'}">
+                    <button type="submit" data-action="change_role">Изменить</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <!-- Здесь может быть подвал сайта с дополнительной информацией -->
+    <p>&copy; 2023 Сайт продаж</p>
+</footer>
+</body>
+</html>

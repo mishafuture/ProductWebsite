@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт продаж</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/products-style.css">
+</head>
+<body>
+<header>
+    <h1>Добро пожаловать на сайт продаж</h1>
+    <nav th:insert="~{fragments/navbar}"></nav>
+</header>
+
+<main>
+    <!-- Здесь размещается контент главной страницы -->
+    <h2>Добро пожаловать на наш сайт продаж!</h2>
+
+    <div class="products-container">
+        <div th:each="product : ${products}" class="product-card">
+            <a style="text-decoration: none" th:href="@{'/product/' + ${product.id}}">
+                <div class="product-image-container">
+                    <img th:if="${product.images.size() > 0}" th:src="@{'/images/' + ${product.images[0].id}}" class="product-image">
+                    <img th:unless="${product.images.size() > 0}" src="/image/photo-search.jpg" class="product-image">
+                </div>
+                <h3 th:text="${product.title}" class="product-title"></h3>
+                <p th:text="${product.price}" class="product-price"></p>
+                <p th:text="${product.getFormattedDate()}" class="product-date"></p>
+            </a>
+        </div>
+    </div>
+
+    <p>Здесь вы найдете широкий выбор товаров и много другой полезной информации.</p>
+</main>
+
+
+<footer>
+    <!-- Здесь может быть подвал сайта с дополнительной информацией -->
+    <p>&copy; 2023 Сайт продаж</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* Стили для формы */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+    width: 97%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form textarea {
+    resize: none;
+}
+
+form input[type="submit"] {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+}
+
+form input[type="submit"]:hover {
+    background-color: #ff3300;
+}
+
+.photo-upload {
+    margin: 10px; /* Отступы между рамками */
+    display: inline-block; /* Установите блоки в одну строку */
+    text-align: center;
+}
+
+.photo-upload input[type="file"] {
+    display: none; /* Скрываем input для выбора файла */
+}
+
+.photo-upload img {
+    width: 215px; /* Ширина изображения камеры */
+    height: 130px; /* Высота изображения камеры */
+    border: 2px dashed #ddd; /* Пунктирная граница рамки */
+    cursor: pointer; /* Курсор при наведении указателя мыши */
+    border-radius: 10px; /* Закругление углов рамки */
+}
+
+.photo-upload img:hover {
+    border-color: #ff6600; /* Изменение цвета границы при наведении */
+}
+
+.photo-upload input[type="file"]:hover + img {
+    border-color: #ff6600; /* Изменение цвета границы при наведении на input[type="file"] */
+}
+
+.photo-upload input[type="file"]::file-selector-button {
+    display: none; /* Скрываем кнопку "Выберите файл" в некоторых браузерах */
+}
+
+/* Стилизация кнопки "Выберите файл" */
+.photo-upload input[type="file"] + img::after {
+    content: 'Выберите файл';
+    display: block;
+    text-align: center;
+    background-color: #ff6600;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* Изменение стилей кнопки "Выберите файл" при наведении на изображение */
+.photo-upload input[type="file"]:hover + img::after {
+    background-color: #ff4400;
+}
+
+
+

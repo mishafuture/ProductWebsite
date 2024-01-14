@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новое объявление</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/style_form.css">
+    <link rel="stylesheet" type="text/css" href="/css/validation-errors-style.css">
+</head>
+<body>
+<header>
+    <h1>Добро пожаловать на сайт продаж</h1>
+    <nav th:insert="~{fragments/navbar}"></nav>
+</header>
+
+<main>
+    <!-- Здесь размещается контент главной страницы -->
+    <h2>Предоставьте данные о вашем товаре</h2>
+    <form method="post" th:action="'/product/' + ${product.id} + '/edit'" th:object="${product}">
+        <label for="title">Введите название товара</label>
+        <input type="text" th:value="${product.title}" name="title" id="title">
+        <div class="error-message" th:if="${#fields.hasErrors('title')}"
+             th:errors="*{title}"></div>
+        <label for="price">Цена товара</label>
+        <input type="number" th:value="${product.price}" min="1" name="price" id="price">
+        <div class="error-message" th:if="${#fields.hasErrors('price')}"
+             th:errors="*{price}"></div>
+        <label for="description">Детально опишите ваш товар</label>
+        <textarea name="description" th:text="${product.description}" id="description"></textarea>
+        <div class="error-message" th:if="${#fields.hasErrors('description')}"
+             th:errors="*{description}"></div>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <input type="submit" value="Редактировать данные">
+    </form>
+</main>
+
+<footer>
+    <!-- Здесь может быть подвал сайта с дополнительной информацией -->
+    <p>&copy; 2023 Сайт продаж</p>
+</footer>
+</body>
+</html>

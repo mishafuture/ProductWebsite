@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт продаж</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/product-info-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/switch-photo.js"></script>
+</head>
+<body>
+<header>
+    <nav th:insert="~{fragments/navbar}"></nav>
+</header>
+
+<main>
+    <div class="product-container" th:data-product-id="${product.id}">
+        <div th:if="${product.images.size() > 0}" class="product-image-container">
+            <img th:src="@{'/images/' + ${product.images[0].id.toString()}}"
+                 class="product-image" id="product-image" alt="Product photo">
+            <div th:if="${product.images.size() > 1}">
+                <button id="prev-image" class="image-control left"><i class="fas fa-chevron-left"></i></button>
+                <button id="next-image" class="image-control right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <h3 class="main-title">Все о товаре</h3>
+
+        <h4 class="product-title">Наименование товара:</h4>
+        <p th:text="${product.title}" class="product-info"></p>
+
+        <h4 class="product-title">Цена:</h4>
+        <p th:text="${product.price}" class="product-info"></p>
+
+        <h4 class="product-title">Описание:</h4>
+        <p th:text="${product.description}" class="product-info"></p>
+
+        <div sec:authorize="isAuthenticated">
+
+        <div th:if="${!isOwner}">
+            <h3 class="main-title">Данные продавца</h3>
+
+            <h4 class="product-title">Почта:</h4>
+            <p th:text="${owner.email}" class="product-info"></p>
+
+            <div th:if="!${#strings.isEmpty(owner.phoneNumber)}">
+                <h4 class="product-title">Номер телефона:</h4>
+                <p th:text="${owner.phoneNumber}" class="product-info"></p>
+            </div>
+
+            <div th:if="!${#strings.isEmpty(owner.city)}">
+                <h4 class="product-title">Город:</h4>
+                <p th:text="${owner.city}" class="product-info"></p>
+            </div>
+        </div>
+
+        <!-- Обертка для кнопок -->
+        <div th:if="${isOwner}" class="button-container">
+            <a th:href="'/product/' + ${product.id} + '/edit'" class="manage-button">Редактировать</a>
+            <form method="post" th:action="'/product/' + ${product.id} + '/delete'">
+                <button class="manage-button" type="submit">Удалить</button>
+            </form>
+        </div>
+    </div>
+    </div>
+</main>
+
+<footer>
+    <!-- Здесь может быть подвал сайта с дополнительной информацией -->
+    <p>&copy; 2023 Сайт продаж</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* Стили для всего документа */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Стили для заголовка */
+header {
+    background-color: #3498db; /* Синий фон */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Стили для контента */
+main {
+    padding: 20px;
+    flex: 1;
+}
+
+/* Стили для подвала */
+footer {
+    background-color: #3498db; /* Синий фон */
+    color: white;
+    text-align: center;
+    padding: 2px; /* Добавлен вертикальный отступ внутри футера */
+    position: fixed; /* Зафиксируем футер внизу экрана */
+    left: 0;
+    right: 0;
+    bottom: 0; /* Разместим футер внизу */
+}
+
+
+/* Стили для заголовков */
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+/* Стили для параграфов */
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Стили для основного навигационного меню */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 0; /* Убираем отступ между кнопками */
+    border: 2px solid #3498db; /* Обводка синего цвета */
+    border-radius: 5px; /* Закругленные углы */
+    margin: 0 5px; /* Добавляем небольшой отступ между кнопками */
+}
+
+nav a {
+    color: white; /* Белый текст ссылок */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    display: block;
+    background-color: #3498db; /* Синий фон */
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    color: black; /* Оранжевый текст при наведении */
+}
+
+/* Стили для выпадающего меню */
+nav .submenu {
+    display: none;
+    position: absolute;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+nav li:hover .submenu {
+    display: block;
+    background-color: #3498db; /* Синий фон подменю */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .submenu li {
+    padding: 10px;
+    width: 150px;
+}
+
+nav .submenu a {
+    color: white;
+}
+
+nav .submenu a:hover {
+    color: black; /* Красный цвет текста при наведении */
+    background-color: #3498db; /* Изменение на синий при наведении */
+}

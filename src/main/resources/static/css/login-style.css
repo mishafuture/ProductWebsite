@@ -1,0 +1,64 @@
+/* Стили для контейнера регистрации */
+.login {
+    text-align: center;
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f4f4f4;
+}
+
+/* Стили для кнопок */
+.login-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.registration-button {
+    background-color: #28a745; /* Зеленый цвет для кнопки Регистрация */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* Стили для текстовых полей и меток */
+.login label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.login input[type="text"],
+.login input[type="email"],
+.login input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Стили для Зарегистрироваться */
+.login button[type="submit"] {
+    background-color: #ff6600; /* Оранжевый цвет для кнопки Зарегистрироваться */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+}

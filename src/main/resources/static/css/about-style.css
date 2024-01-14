@@ -1,0 +1,34 @@
+/* Стили для блока "О нас" */
+.about-us {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Стили для изображения "О нас" */
+.about-us-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Центрируем и добавляем отступ снизу */
+    border: 1px solid #ccc; /* Опциональная рамка вокруг изображения */
+}
+
+/* Стили для заголовка "О нас" */
+.about-us h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Стили для текста в блоке "О нас" */
+.about-us p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.5; /* Увеличим межстрочное расстояние */
+    margin-bottom: 15px;
+}
